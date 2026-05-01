@@ -67,6 +67,33 @@
     }
   ];
 
+  const practice = [
+    {
+      title: '5of12',
+      image: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.co.uk%2F&screenshot=true&meta=false&embed=screenshot.url',
+      alt: '5of12 website preview',
+      desc: 'Co-founder and Product Director of a creative technology studio working across spatial interaction, haptics, audio technology and rapid software prototyping.'
+    },
+    {
+      title: 'VFX software foundations',
+      image: 'https://api.microlink.io/?url=https%3A%2F%2Fwww.foundry.com%2F&screenshot=true&meta=false&embed=screenshot.url',
+      alt: 'Foundry website preview',
+      desc: 'Earlier work at The Foundry shaped my approach to image processing, creative pipelines and professional software tools for artists.'
+    },
+    {
+      title: 'Pervasive Media Studio',
+      image: 'https://api.microlink.io/?url=https%3A%2F%2Fwww.watershed.co.uk%2Fstudio%2F&screenshot=true&meta=false&embed=screenshot.url',
+      alt: 'Pervasive Media Studio website preview',
+      desc: 'Resident at Bristol’s creative technology hub, developing work around spatial computing, musical interfaces and accessible creative technology.'
+    },
+    {
+      title: 'We All Play Synth',
+      image: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.co.uk%2F&screenshot=true&meta=false&embed=screenshot.url',
+      alt: '5of12 website preview used for We All Play Synth context',
+      desc: 'Co-founder of an electronic music open mic night supporting grassroots synth culture, performance and experimentation.'
+    }
+  ];
+
   const capabilities = ['Spatial interaction', 'Audio systems', 'Image processing', 'WebMIDI + WebAudio', 'SwiftUI + Apple platforms', 'Unity + XR prototyping', 'AI-assisted development workflows'];
 </script>
 
@@ -96,20 +123,6 @@
         <a href={playlistUrl} target="_blank" rel="noreferrer">Watch experiments</a>
       </div>
     </div>
-
-    <aside class="play-orbit" aria-label="Animated audiovisual motif">
-      <span class="orb one"></span>
-      <span class="orb two"></span>
-      <span class="orb three"></span>
-      <span class="ring"></span>
-      <div class="sequencer" aria-hidden="true">
-        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-      </div>
-      <p>Current focus</p>
-      <strong>New instruments for musical interaction.</strong>
-      <span class="caption">Web · XR · Apple platforms · sound</span>
-    </aside>
   </section>
 
   <section id="work" class="section reveal">
@@ -190,10 +203,15 @@
       <h2>A practice shaped by audio, VFX tooling, XR and product thinking.</h2>
     </div>
     <div class="practice-grid">
-      <article><h3>5of12</h3><p>Co-founder and Product Director of a creative technology studio working across spatial interaction, haptics, audio technology and rapid software prototyping.</p></article>
-      <article><h3>VFX software foundations</h3><p>Earlier work at The Foundry shaped my approach to image processing, creative pipelines and professional software tools for artists.</p></article>
-      <article><h3>Pervasive Media Studio</h3><p>Resident at Bristol’s creative technology hub, developing work around spatial computing, musical interfaces and accessible creative technology.</p></article>
-      <article><h3>We All Play Synth</h3><p>Co-founder of an electronic music open mic night supporting grassroots synth culture, performance and experimentation.</p></article>
+      {#each practice as item}
+        <article>
+          <img src={item.image} alt={item.alt} loading="lazy" />
+          <div>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        </article>
+      {/each}
     </div>
   </section>
 
@@ -242,7 +260,7 @@
   nav { display: flex; gap: clamp(0.7rem, 1.8vw, 1.45rem); color: #655f57; font-size: 0.92rem; }
   nav a:hover, footer a:hover, .work-card a:hover, .prototype-links a:hover { color: #d84d2d; }
 
-  .hero { min-height: 84svh; display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 380px); gap: clamp(2rem, 7vw, 5rem); align-items: center; padding: clamp(4rem, 10vw, 8rem) 0; }
+  .hero { min-height: 72svh; display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; padding: clamp(4rem, 10vw, 8rem) 0; }
   .eyebrow { margin: 0 0 1rem; color: #655f57; font-size: 0.76rem; letter-spacing: 0.11em; text-transform: uppercase; }
   h1, h2, h3, p { margin-top: 0; }
   h1 {
@@ -258,18 +276,6 @@
   .hero-actions a, .work-card a, .prototype-links a { border: 1px solid rgba(23,19,15,0.16); border-radius: 999px; padding: 0.5rem 0.76rem; background: rgba(255,255,255,0.28); transition: transform 180ms ease, background 180ms ease, border-color 180ms ease; }
   .hero-actions a:hover, .work-card a:hover, .prototype-links a:hover { transform: translateY(-1px); background: rgba(255,255,255,0.58); border-color: rgba(23,19,15,0.28); }
 
-  .play-orbit { position: relative; min-height: 28rem; border: 1px solid rgba(23,19,15,0.13); border-radius: 0.65rem; padding: 1.25rem; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; background: rgba(255,255,255,0.28); }
-  .play-orbit p, .play-orbit .caption { color: #655f57; margin: 0; z-index: 2; }
-  .play-orbit strong { z-index: 2; margin: 0.8rem 0; font-size: clamp(1.45rem, 2.5vw, 2.45rem); line-height: 1.03; letter-spacing: -0.048em; font-weight: 430; }
-  .ring { position: absolute; width: 18rem; height: 18rem; border: 1px solid rgba(23,19,15,0.14); border-radius: 50%; left: 50%; top: 38%; transform: translate(-50%, -50%); animation: spin 26s linear infinite; }
-  .orb { position: absolute; border-radius: 50%; opacity: 0.82; animation: floaty 8s ease-in-out infinite; }
-  .one { width: 5.6rem; height: 5.6rem; background: #d84d2d; left: 18%; top: 16%; }
-  .two { width: 3.6rem; height: 3.6rem; background: #2e73c7; right: 18%; top: 30%; animation-delay: -2s; }
-  .three { width: 2.4rem; height: 2.4rem; background: #d9a630; left: 46%; top: 52%; animation-delay: -3.3s; }
-  .sequencer { position: absolute; inset: auto 1.25rem 1.25rem; display: grid; grid-template-columns: repeat(8, 1fr); gap: 0.35rem; opacity: 0.42; }
-  .sequencer i { height: 0.46rem; border-radius: 999px; background: rgba(23,19,15,0.18); animation: step 2.1s infinite; }
-  .sequencer i:nth-child(3n) { background: #d84d2d; } .sequencer i:nth-child(4n) { background: #2e73c7; } .sequencer i:nth-child(5n) { background: #d9a630; }
-
   .section { padding: clamp(4rem, 8vw, 7rem) 0; border-top: 1px solid rgba(23,19,15,0.12); }
   .section-heading { display: grid; grid-template-columns: minmax(9rem, 0.34fr) 1fr; gap: clamp(1.5rem, 4vw, 4rem); margin-bottom: clamp(2rem, 5vw, 4rem); }
   h2 { max-width: 880px; font-size: clamp(2.1rem, 4.5vw, 4.9rem); line-height: 1; letter-spacing: -0.058em; font-weight: 430; }
@@ -277,14 +283,16 @@
   .work-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
   .work-card { position: relative; min-height: 34rem; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(1rem, 2.4vw, 1.5rem); border: 1px solid rgba(23,19,15,0.13); border-radius: 0.65rem; background: rgba(255,255,255,0.3); overflow: hidden; transition: transform 220ms ease, background 220ms ease; }
   .work-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.46); }
-  .work-card::before { content: ''; position: absolute; inset: 0; opacity: 0.16; background: radial-gradient(circle at 30% 20%, var(--accent), transparent 16rem); pointer-events: none; }
+  .work-card::before { content: ''; position: absolute; inset: 0; opacity: 0.04; background: radial-gradient(circle at 30% 20%, var(--accent), transparent 16rem); pointer-events: none; transition: opacity 200ms ease; }
+  .work-card:hover::before { opacity: 0.16; }
   .signal { --accent: #2e73c7; } .canvas { --accent: #d9a630; } .toybox { --accent: #d84d2d; } .orbit { --accent: #4f9567; }
   .work-topline, .tag-row, .prototype-links { display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: space-between; align-items: center; }
   .work-topline span { font-size: 2.15rem; letter-spacing: -0.08em; font-weight: 360; }
   .work-topline p, .kicker, .repo-name { color: #655f57; font-size: 0.9rem; }
   .visual-instrument { position: relative; height: 8rem; margin: 1.5rem 0; display: flex; gap: 0.35rem; align-items: end; }
-  .visual-instrument b { flex: 1; min-width: 0.45rem; border-radius: 999px 999px 0 0; background: var(--accent); opacity: 0.86; animation: meter 2.2s ease-in-out infinite; }
-  .visual-instrument b:nth-child(2) { height: 70%; animation-delay: -0.2s; } .visual-instrument b:nth-child(3) { height: 35%; animation-delay: -0.5s; } .visual-instrument b:nth-child(4) { height: 85%; animation-delay: -0.8s; } .visual-instrument b:nth-child(5) { height: 52%; animation-delay: -1s; }
+  .visual-instrument b { flex: 1; min-width: 0.45rem; border-radius: 999px 999px 0 0; background: var(--accent); opacity: 0.38; height: 32%; transition: opacity 180ms ease; }
+  .work-card:hover .visual-instrument b { opacity: 0.86; animation: meter 2.2s ease-in-out infinite; }
+  .work-card:hover .visual-instrument b:nth-child(2) { animation-delay: -0.2s; } .work-card:hover .visual-instrument b:nth-child(3) { animation-delay: -0.5s; } .work-card:hover .visual-instrument b:nth-child(4) { animation-delay: -0.8s; } .work-card:hover .visual-instrument b:nth-child(5) { animation-delay: -1s; }
   .work-card h3, .prototype-card h3, .playlist-card h3, .practice-grid h3 { font-size: clamp(1.45rem, 2.1vw, 2.05rem); line-height: 1.04; letter-spacing: -0.046em; margin-bottom: 0.8rem; font-weight: 430; }
   .work-card p, .prototype-body p, .playlist-card p:not(.eyebrow), .practice-grid p { color: #4e4942; line-height: 1.56; font-weight: 370; }
   .tag-row span, .capability-grid span { border: 1px solid rgba(23,19,15,0.13); border-radius: 999px; padding: 0.23rem 0.5rem; color: #655f57; background: rgba(255,255,255,0.24); font-size: 0.86rem; }
@@ -303,7 +311,11 @@
   .play-symbol { width: clamp(7rem, 13vw, 10.5rem); aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; background: #d84d2d; color: #fff; font-size: clamp(3rem, 7vw, 5.6rem); font-weight: 360; }
 
   .practice-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-  .practice-grid article { min-height: 17rem; padding: clamp(1.25rem, 3vw, 2rem); border-radius: 0.65rem; border: 1px solid rgba(23,19,15,0.13); background: rgba(255,255,255,0.3); }
+  .practice-grid article { overflow: hidden; min-height: 22rem; border-radius: 0.65rem; border: 1px solid rgba(23,19,15,0.13); background: rgba(255,255,255,0.3); transition: transform 220ms ease, background 220ms ease; }
+  .practice-grid article:hover { transform: translateY(-3px); background: rgba(255,255,255,0.48); }
+  .practice-grid img { width: 100%; aspect-ratio: 1.4 / 1; object-fit: cover; display: block; filter: saturate(0.92) contrast(0.98); border-bottom: 1px solid rgba(23,19,15,0.13); }
+  .practice-grid article > div { padding: clamp(1.1rem, 3vw, 1.45rem); }
+
   .capability-section { display: grid; grid-template-columns: 1fr minmax(260px, 0.55fr); gap: clamp(2rem, 5vw, 4rem); }
   .approach-copy { max-width: 800px; font-size: clamp(1.7rem, 3.5vw, 3.5rem); line-height: 1.05; letter-spacing: -0.052em; font-weight: 430; }
   .capability-grid { display: flex; flex-wrap: wrap; align-content: start; gap: 0.55rem; }
@@ -311,13 +323,10 @@
 
   .reveal { animation: reveal 700ms ease both; }
   @keyframes reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes floaty { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-12px) scale(1.025); } }
-  @keyframes spin { to { rotate: 360deg; } }
-  @keyframes step { 0%, 100% { transform: scaleY(0.72); opacity: 0.42; } 50% { transform: scaleY(1.22); opacity: 0.78; } }
   @keyframes meter { 0%, 100% { height: 30%; } 50% { height: 92%; } }
 
   @media (max-width: 1100px) { .work-list, .practice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 900px) { .hero, .section-heading, .playlist-card, .capability-section, .prototype-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .section-heading, .playlist-card, .capability-section, .prototype-grid { grid-template-columns: 1fr; } }
   @media (max-width: 680px) { nav { width: 100%; overflow-x: auto; } .site-header { align-items: flex-start; flex-direction: column; } .work-list, .practice-grid { grid-template-columns: 1fr; } .work-card { min-height: 28rem; } }
   @media (prefers-reduced-motion: reduce) { :global(html) { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
 </style>
