@@ -44,32 +44,36 @@
     {
       title: 'Pulse',
       repo: '5of12/Pulse',
-      href: 'https://github.com/5of12/Pulse',
-      preview: 'https://opengraph.githubassets.com/ant-portfolio/5of12/Pulse',
+      href: 'https://5of12.github.io/Pulse/',
+      repoUrl: 'https://github.com/5of12/Pulse',
+      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FPulse%2F&screenshot=true&meta=false&embed=screenshot.url',
       desc: 'Audio-reactive and interaction-led prototype work from 5of12.',
       tags: ['Prototype', 'Audio', 'Interaction']
     },
     {
       title: 'Augment',
       repo: '5of12/Augment',
-      href: 'https://github.com/5of12/Augment',
-      preview: 'https://opengraph.githubassets.com/ant-portfolio/5of12/Augment',
+      href: 'https://5of12.github.io/Augment/',
+      repoUrl: 'https://github.com/5of12/Augment',
+      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FAugment%2F&screenshot=true&meta=false&embed=screenshot.url',
       desc: 'Spatial computing and augmentation experiments for real-world interfaces.',
       tags: ['XR', 'Spatial UI', 'Prototype']
     },
     {
       title: 'PocketOperations',
       repo: '5of12/PocketOperations',
-      href: 'https://github.com/5of12/PocketOperations',
-      preview: 'https://opengraph.githubassets.com/ant-portfolio/5of12/PocketOperations',
+      href: 'https://5of12.github.io/PocketOperations/',
+      repoUrl: 'https://github.com/5of12/PocketOperations',
+      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FPocketOperations%2F&screenshot=true&meta=false&embed=screenshot.url',
       desc: 'Compact operational tooling and mobile-first interaction experiments.',
       tags: ['Mobile', 'Tools', 'Workflow']
     },
     {
       title: 'MIDIWeb Hub',
       repo: '5of12/MIDIWeb-Hub',
-      href: 'https://github.com/5of12/MIDIWeb-Hub',
-      preview: 'https://opengraph.githubassets.com/ant-portfolio/5of12/MIDIWeb-Hub',
+      href: 'https://5of12.github.io/MIDIWeb-Hub/',
+      repoUrl: 'https://github.com/5of12/MIDIWeb-Hub',
+      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FMIDIWeb-Hub%2F&screenshot=true&meta=false&embed=screenshot.url',
       desc: 'A curated hub for WebMIDI tools, experiments and browser-based music experiences.',
       tags: ['WebMIDI', 'Directory', 'Music web']
     }
@@ -158,24 +162,30 @@
   <section id="prototypes" class="section reveal">
     <div class="section-heading">
       <p class="eyebrow">Prototype links</p>
-      <h2>Live repositories and snapshot previews from 5of12.</h2>
+      <h2>Live site snapshots from 5of12 prototypes.</h2>
     </div>
 
     <div class="prototype-grid">
       {#each prototypes as item}
-        <a class="prototype-card" href={item.href} target="_blank" rel="noreferrer">
-          <img src={item.preview} alt={`${item.repo} GitHub repository preview`} loading="lazy" />
+        <article class="prototype-card">
+          <a href={item.href} target="_blank" rel="noreferrer" aria-label={`Open ${item.title} live site`}>
+            <img src={item.preview} alt={`${item.title} live site preview`} loading="lazy" />
+          </a>
           <div class="prototype-body">
             <p class="repo-name">{item.repo}</p>
             <h3>{item.title}</h3>
             <p>{item.desc}</p>
+            <div class="prototype-links">
+              <a href={item.href} target="_blank" rel="noreferrer">Live site</a>
+              <a href={item.repoUrl} target="_blank" rel="noreferrer">Repository</a>
+            </div>
             <div class="tag-row">
               {#each item.tags as tag}
                 <span>{tag}</span>
               {/each}
             </div>
           </div>
-        </a>
+        </article>
       {/each}
     </div>
   </section>
@@ -280,10 +290,10 @@
     backdrop-filter: blur(16px);
     background: rgba(246, 245, 240, 0.84);
   }
-  .wordmark, nav a, footer a, .work-body a, .hero-actions a, .playlist-card, .prototype-card { color: inherit; text-decoration: none; }
+  .wordmark, nav a, footer a, .work-body a, .hero-actions a, .playlist-card, .prototype-card a { color: inherit; text-decoration: none; }
   .wordmark { font-weight: 560; letter-spacing: -0.02em; white-space: nowrap; }
   nav { display: flex; gap: clamp(0.7rem, 1.8vw, 1.45rem); color: #65635d; font-size: 0.92rem; }
-  nav a:hover, footer a:hover, .work-body a:hover, .hero-actions a:hover { color: #c84624; }
+  nav a:hover, footer a:hover, .work-body a:hover, .hero-actions a:hover, .prototype-links a:hover { color: #c84624; }
   .hero {
     min-height: 84svh;
     display: grid;
@@ -297,7 +307,7 @@
   h1 { max-width: 1040px; margin-bottom: 2rem; font-size: clamp(3rem, 7.8vw, 7.8rem); line-height: 0.92; letter-spacing: -0.075em; font-weight: 520; }
   .lede { max-width: 760px; color: #5e5c56; font-size: clamp(1.1rem, 2vw, 1.45rem); line-height: 1.48; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 2rem; }
-  .hero-actions a, .work-body a { border-bottom: 1px solid currentColor; text-underline-offset: 0.2em; }
+  .hero-actions a, .work-body a, .prototype-links a { border-bottom: 1px solid currentColor; text-underline-offset: 0.2em; }
   .signal-panel {
     border: 1px solid #d8d4c9;
     min-height: 22rem;
@@ -334,6 +344,7 @@
   .prototype-body { padding: clamp(1.1rem, 3vw, 1.6rem); }
   .prototype-body p { color: #4e4c46; line-height: 1.55; }
   .repo-name { color: #65635d !important; font-size: 0.86rem; margin-bottom: 0.7rem; }
+  .prototype-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
   .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
   .playlist-card { display: grid; grid-template-columns: minmax(160px, 0.3fr) 1fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: center; min-height: 20rem; border: 1px solid #d8d4c9; padding: clamp(1.25rem, 4vw, 3rem); background: rgba(255,255,255,0.32); transition: transform 220ms ease, background 220ms ease; }
   .playlist-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.5); }
