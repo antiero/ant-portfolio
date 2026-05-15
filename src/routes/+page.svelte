@@ -98,7 +98,7 @@
 </script>
 
 <svelte:head>
-  <title>Antony Nascè — Creative Technologist</title>
+  <title>Antony Nascè — Audiovisual Tinkerer</title>
   <meta name="description" content="Creative technologist and product developer building tools for sound, image, space and interaction." />
 </svelte:head>
 
