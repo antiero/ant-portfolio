@@ -116,8 +116,8 @@
   <section class="hero reveal">
     <div class="hero-copy">
       <p class="eyebrow">Creative Technologist · Musical Systems · Spatial Play</p>
-      <h1>I make playful tools for sound, image, space and interaction.</h1>
-      <p class="lede">I’m Antony Nascè: a composer, sound designer and product developer building audiovisual systems, browser-based music tools and spatial computing prototypes through 5of12.</p>
+      <h1>Audiovisual Tinkerer.</h1>
+      <p class="lede">👋 I’m Antony Nascè: a composer, sound designer and product developer building audiovisual systems, browser-based music tools and spatial computing prototypes through 5of12.</p>
       <div class="hero-actions">
         <a href="#work">Explore the work</a>
         <a href={playlistUrl} target="_blank" rel="noreferrer">Watch experiments</a>
@@ -156,7 +156,7 @@
   <section id="prototypes" class="section reveal">
     <div class="section-heading">
       <p class="eyebrow">Prototype links</p>
-      <h2>Live snapshots from small, curious 5of12 builds.</h2>
+      <h2>Playable Prototypes.</h2>
     </div>
 
     <div class="prototype-grid">
@@ -185,7 +185,7 @@
   <section id="media" class="section reveal media-section">
     <div class="section-heading">
       <p class="eyebrow">Media</p>
-      <h2>Dev videos, sonic sketches and interaction tests.</h2>
+      <h2>Sonic sketches and interaction tests.</h2>
     </div>
     <a class="playlist-card" href={playlistUrl} target="_blank" rel="noreferrer">
       <div class="play-symbol">▶</div>
@@ -216,7 +216,7 @@
   </section>
 
   <section class="section capability-section reveal">
-    <p class="approach-copy">The thread is simple: reduce the distance between an idea and a sound.</p>
+    <p class="approach-copy">Life is short. Let's Play More.</p>
     <div class="capability-grid" aria-label="Capabilities">
       {#each capabilities as capability}<span>{capability}</span>{/each}
     </div>
