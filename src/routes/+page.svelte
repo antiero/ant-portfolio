@@ -1,4 +1,6 @@
 <script>
+  import AppShowcase from '../lib/AppShowcase.svelte';
+
   const playlistUrl = 'https://youtube.com/playlist?list=PLVqqKblFrXjaA8gYFgYS40rxdmFLhRnjD&si=d3-dkLNu7XzeSOia';
 
   const work = [
@@ -105,6 +107,7 @@
 <header class="site-header">
   <a class="wordmark" href="/ant-portfolio/">Antony Nascè</a>
   <nav aria-label="Primary navigation">
+    <a href="#apps">Apps</a>
     <a href="#work">Work</a>
     <a href="#prototypes">Prototypes</a>
     <a href="#media">Media</a>
@@ -124,6 +127,8 @@
       </div>
     </div>
   </section>
+
+  <AppShowcase />
 
   <section id="work" class="section reveal">
     <div class="section-heading">
