@@ -1,116 +1,85 @@
 <script>
   import AppShowcase from '../lib/AppShowcase.svelte';
+  import SocialLinks from '../lib/SocialLinks.svelte';
 
-  const playlistUrl = 'https://youtube.com/playlist?list=PLVqqKblFrXjaA8gYFgYS40rxdmFLhRnjD&si=d3-dkLNu7XzeSOia';
-
-  const work = [
-    {
-      title: 'MIDIWeb',
-      kicker: 'WebMIDI browser for Apple devices',
-      desc: 'A dedicated browser for WebMIDI experiences across iOS, iPadOS, macOS and visionOS. Built around virtual MIDI routing and browser-native music tools.',
-      link: 'https://5of12.co.uk',
-      year: '2024–present',
-      index: '01',
-      media: ['SwiftUI', 'WebMIDI', 'MIDI routing'],
-      mood: 'signal'
-    },
-    {
-      title: 'Noodlr Board',
-      kicker: 'Infinite canvas for music ideas',
-      desc: 'A collaborative space for pre-production: audio references, comments, tasks, WebAudio experiments and musical idea development before the DAW.',
-      link: 'https://5of12.github.io/noodlrboard/',
-      year: '2024–present',
-      index: '02',
-      media: ['Canvas', 'Audio notes', 'Collaboration'],
-      mood: 'canvas'
-    },
-    {
-      title: 'Pezzi',
-      kicker: 'Music in Pieces',
-      desc: 'A musical puzzle game for WebXR and desktop, designed around playful interactions, quick musical feedback and accessible music-making mechanics.',
-      link: 'https://5of12.co.uk',
-      year: '2025–present',
-      index: '03',
-      media: ['WebXR', 'Music game', 'Audio UX'],
-      mood: 'toybox'
-    },
-    {
-      title: 'XR + audio prototypes',
-      kicker: 'Spatial instruments and interaction systems',
-      desc: 'Experiments in hand tracking, haptics, physical modelling and novel musical interfaces across Unity, Apple platforms and the web.',
-      link: playlistUrl,
-      year: 'ongoing',
-      index: '04',
-      media: ['Hand tracking', 'Haptics', 'Instruments'],
-      mood: 'orbit'
-    }
-  ];
+  const playlistId = 'PLVqqKblFrXjaA8gYFgYS40rxdmFLhRnjD';
+  const playlistUrl = `https://youtube.com/playlist?list=${playlistId}`;
+  const playlistEmbed = `https://www.youtube-nocookie.com/embed/videoseries?list=${playlistId}&rel=0`;
 
   const prototypes = [
     {
-      title: 'Pulse', repo: '5of12/Pulse', href: 'https://5of12.github.io/Pulse/', repoUrl: 'https://github.com/5of12/Pulse',
-      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FPulse%2F&screenshot=true&meta=false&embed=screenshot.url',
-      desc: 'Audio-reactive and interaction-led prototype work from 5of12.', tags: ['Audio', 'Prototype', 'Pulse']
+      title: 'Pulse',
+      href: 'https://5of12.github.io/Pulse/',
+      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FPulse%2F&screenshot=true&meta=false&embed=screenshot.url'
     },
     {
-      title: 'Augment', repo: '5of12/Augment', href: 'https://5of12.github.io/Augment/', repoUrl: 'https://github.com/5of12/Augment',
-      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FAugment%2F&screenshot=true&meta=false&embed=screenshot.url',
-      desc: 'Spatial computing and augmentation experiments for real-world interfaces.', tags: ['XR', 'Spatial UI', 'Play']
+      title: 'Augment',
+      href: 'https://5of12.github.io/Augment/',
+      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FAugment%2F&screenshot=true&meta=false&embed=screenshot.url'
     },
     {
-      title: 'PocketOperations', repo: '5of12/PocketOperations', href: 'https://5of12.github.io/PocketOperations/', repoUrl: 'https://github.com/5of12/PocketOperations',
-      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FPocketOperations%2F&screenshot=true&meta=false&embed=screenshot.url',
-      desc: 'Compact operational tooling and mobile-first interaction experiments.', tags: ['Mobile', 'Tools', 'Workflow']
+      title: 'PocketOperations',
+      href: 'https://5of12.github.io/PocketOperations/',
+      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FPocketOperations%2F&screenshot=true&meta=false&embed=screenshot.url'
     },
     {
-      title: 'MIDIWeb Hub', repo: '5of12/MIDIWeb-Hub', href: 'https://5of12.github.io/MIDIWeb-Hub/', repoUrl: 'https://github.com/5of12/MIDIWeb-Hub',
-      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FMIDIWeb-Hub%2F&screenshot=true&meta=false&embed=screenshot.url',
-      desc: 'A curated hub for WebMIDI tools, experiments and browser-based music experiences.', tags: ['WebMIDI', 'Directory', 'Music web']
+      title: 'MIDIWeb Hub',
+      href: 'https://5of12.github.io/MIDIWeb-Hub/',
+      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FMIDIWeb-Hub%2F&screenshot=true&meta=false&embed=screenshot.url'
     }
   ];
 
   const practice = [
     {
       title: '5of12',
+      role: 'Co-founder · Product Director',
+      text: 'A creative technology studio building audio, spatial and haptic experiences.',
+      href: 'https://5of12.co.uk/',
       image: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.co.uk%2F&screenshot=true&meta=false&embed=screenshot.url',
-      alt: '5of12 website preview',
-      desc: 'Co-founder and Product Director of a creative technology studio working across spatial interaction, haptics, audio technology and rapid software prototyping.'
+      alt: '5of12 creative technology studio website'
     },
     {
-      title: 'VFX software foundations',
+      title: 'Foundry',
+      role: 'VFX software foundations',
+      text: 'Professional image tools shaped my approach to processing and artist workflows.',
+      href: 'https://www.foundry.com/',
       image: 'https://api.microlink.io/?url=https%3A%2F%2Fwww.foundry.com%2F&screenshot=true&meta=false&embed=screenshot.url',
-      alt: 'Foundry website preview',
-      desc: 'Earlier work at The Foundry shaped my approach to image processing, creative pipelines and professional software tools for artists.'
+      alt: 'Foundry creative software website'
     },
     {
       title: 'Pervasive Media Studio',
+      role: 'Studio resident',
+      text: 'Part of Bristol’s creative technology research and development community.',
+      href: 'https://www.watershed.co.uk/studio/residents/ant-nasc%C3%A8',
       image: 'https://api.microlink.io/?url=https%3A%2F%2Fwww.watershed.co.uk%2Fstudio%2F&screenshot=true&meta=false&embed=screenshot.url',
-      alt: 'Pervasive Media Studio website preview',
-      desc: 'Resident at Bristol’s creative technology hub, developing work around spatial computing, musical interfaces and accessible creative technology.'
+      alt: 'Pervasive Media Studio website'
     },
     {
       title: 'We All Play Synth',
-      image: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.co.uk%2F&screenshot=true&meta=false&embed=screenshot.url',
-      alt: '5of12 website preview used for We All Play Synth context',
-      desc: 'Co-founder of an electronic music open mic night supporting grassroots synth culture, performance and experimentation.'
+      role: 'Co-founder · Electronic music community',
+      text: 'A Bristol open mic where electronic musicians perform, experiment and collaborate.',
+      href: 'https://weallplaysynth.com/',
+      image: './waps-banner.webp',
+      alt: 'We All Play Synth logo',
+      logo: true
     }
   ];
 
-  const capabilities = ['Spatial interaction', 'Audio systems', 'Image processing', 'WebMIDI + WebAudio', 'SwiftUI + Apple platforms', 'Unity + XR prototyping', 'AI-assisted development workflows'];
+  const capabilities = ['Audio systems', 'Spatial interaction', 'Image processing', 'WebMIDI', 'Apple platforms', 'XR prototyping'];
 </script>
 
 <svelte:head>
   <title>Antony Nascè — Audiovisual Tinkerer</title>
-  <meta name="description" content="Creative technologist and product developer building tools for sound, image, space and interaction." />
+  <meta name="description" content="Composer and product developer making playful tools for sound, image and space." />
+  <link rel="icon" type="image/webp" href="./antony-nasce.webp" />
 </svelte:head>
 
 <header class="site-header">
-  <a class="wordmark" href="/ant-portfolio/">Antony Nascè</a>
+  <a class="wordmark" href="./">Antony Nascè</a>
   <nav aria-label="Primary navigation">
     <a href="#apps">Apps</a>
-    <a href="#work">Work</a>
     <a href="#prototypes">Prototypes</a>
-    <a href="#media">Media</a>
+    <a href="#media">Watch</a>
     <a href="#practice">Practice</a>
   </nav>
 </header>
@@ -118,120 +87,91 @@
 <main>
   <section class="hero reveal">
     <div class="hero-copy">
-      <p class="eyebrow">Creative Technologist · Musical Systems · Spatial Play</p>
-      <h1>Audiovisual Tinkerer.</h1>
-      <p class="lede">👋 I’m Antony Nascè: a composer, sound designer and product developer building audiovisual systems, browser-based music tools and spatial computing prototypes through 5of12.</p>
+      <p class="eyebrow">Creative technologist · musical systems · spatial play</p>
+      <h1>Audiovisual<br />Tinkerer.</h1>
+      <div class="introduction">
+        <img src="./antony-nasce.webp" alt="Antony Nascè" width="640" height="640" />
+        <p>I’m Antony Nascè — a composer and product developer making playful tools for sound, image and space.</p>
+      </div>
       <div class="hero-actions">
-        <a href="#work">Explore the work</a>
-        <a href={playlistUrl} target="_blank" rel="noreferrer">Watch experiments</a>
+        <a href="#apps">Explore apps</a>
+        <a href="#media">Watch experiments</a>
       </div>
     </div>
   </section>
 
   <AppShowcase />
 
-  <section id="work" class="section reveal">
-    <div class="section-heading">
-      <p class="eyebrow">Selected work</p>
-      <h2>Things to play, test, perform with and build upon.</h2>
-    </div>
-
-    <div class="work-list">
-      {#each work as item}
-        <article class={`work-card ${item.mood}`}>
-          <div class="work-topline">
-            <span>{item.index}</span>
-            <p>{item.year}</p>
-          </div>
-          <div class="visual-instrument" aria-label={`${item.title} visual motif`}>
-            <b></b><b></b><b></b><b></b><b></b>
-          </div>
-          <p class="kicker">{item.kicker}</p>
-          <h3>{item.title}</h3>
-          <p>{item.desc}</p>
-          <div class="tag-row">
-            {#each item.media as label}<span>{label}</span>{/each}
-          </div>
-          <a href={item.link} target="_blank" rel="noreferrer">Open project</a>
-        </article>
-      {/each}
-    </div>
-  </section>
-
   <section id="prototypes" class="section reveal">
     <div class="section-heading">
-      <p class="eyebrow">Prototype links</p>
-      <h2>Playable Prototypes.</h2>
+      <p class="eyebrow">Playable prototypes</p>
+      <h2>Small experiments,<br />ready to explore.</h2>
     </div>
 
     <div class="prototype-grid">
       {#each prototypes as item}
-        <article class="prototype-card">
-          <a class="prototype-image" href={item.href} target="_blank" rel="noreferrer" aria-label={`Open ${item.title} live site`}>
-            <img src={item.preview} alt={`${item.title} live site preview`} loading="lazy" />
-          </a>
-          <div class="prototype-body">
-            <p class="repo-name">{item.repo}</p>
-            <h3>{item.title}</h3>
-            <p>{item.desc}</p>
-            <div class="prototype-links">
-              <a href={item.href} target="_blank" rel="noreferrer">Live site</a>
-              <a href={item.repoUrl} target="_blank" rel="noreferrer">Repository</a>
-            </div>
-            <div class="tag-row">
-              {#each item.tags as tag}<span>{tag}</span>{/each}
-            </div>
-          </div>
-        </article>
+        <a class="prototype" href={item.href} target="_blank" rel="noreferrer" aria-label={`Open ${item.title}`}>
+          <img src={item.preview} alt={`${item.title} website preview`} loading="lazy" />
+          <span>{item.title}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
       {/each}
     </div>
   </section>
 
-  <section id="media" class="section reveal media-section">
+  <section id="media" class="section reveal">
     <div class="section-heading">
-      <p class="eyebrow">Media</p>
-      <h2>Sonic sketches and interaction tests.</h2>
+      <p class="eyebrow">Watch</p>
+      <h2>Sketches in motion.</h2>
     </div>
-    <a class="playlist-card" href={playlistUrl} target="_blank" rel="noreferrer">
-      <div class="play-symbol">▶</div>
-      <div>
-        <p class="eyebrow">YouTube playlist</p>
-        <h3>Watch the development process</h3>
-        <p>Sketches, prototypes and experiments from audiovisual product development work.</p>
-      </div>
-    </a>
+
+    <div class="playlist">
+      <iframe
+        src={playlistEmbed}
+        title="Antony Nascè audiovisual experiments playlist"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <a class="text-link" href={playlistUrl} target="_blank" rel="noreferrer">Open the full playlist <span aria-hidden="true">↗</span></a>
   </section>
 
   <section id="practice" class="section reveal">
     <div class="section-heading">
       <p class="eyebrow">Practice</p>
-      <h2>A practice shaped by audio, VFX tooling, XR and product thinking.</h2>
+      <h2>A background in creative technology.</h2>
     </div>
+
     <div class="practice-grid">
       {#each practice as item}
-        <article>
-          <img src={item.image} alt={item.alt} loading="lazy" />
-          <div>
-            <h3>{item.title}</h3>
-            <p>{item.desc}</p>
-          </div>
-        </article>
+        <a class="practice-entry" href={item.href} target="_blank" rel="noreferrer" aria-label={`Visit ${item.title}`}>
+          <span class:logo-art={item.logo} class="practice-image">
+            <img src={item.image} alt={item.alt} loading="lazy" />
+          </span>
+          <span class="practice-copy">
+            <span class="practice-meta"><span>{item.role}</span><span aria-hidden="true">↗</span></span>
+            <strong>{item.title}</strong>
+            <span class="practice-description">{item.text}</span>
+          </span>
+        </a>
       {/each}
     </div>
   </section>
 
-  <section class="section capability-section reveal">
-    <p class="approach-copy">Life is short. Let's Play More.</p>
-    <div class="capability-grid" aria-label="Capabilities">
+  <section class="section closing reveal">
+    <p>Life is short.<br />Let’s play more.</p>
+    <div class="capabilities" aria-label="Capabilities">
       {#each capabilities as capability}<span>{capability}</span>{/each}
     </div>
   </section>
 </main>
 
-<footer id="contact" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-  <div style="font-size: 0.85rem;">© 2024 Antony Nascè. All rights reserved.</div>
-  <div style="display: flex; gap: 1rem;">
-    <a href="mailto:antonynasce@gmail.com" aria-label="Email" style="color: rgba(255, 255, 255, 0.6); transition: color 0.2s;">antonynasce@gmail.com</a>
+<footer>
+  <span>© 2026 Antony Nascè</span>
+  <div class="footer-links">
+    <SocialLinks />
+    <a class="email-link" href="mailto:antonynasce@gmail.com">Email</a>
   </div>
 </footer>
 
@@ -240,101 +180,173 @@
   :global(html) { scroll-behavior: smooth; }
   :global(body) {
     margin: 0;
+    overflow-x: hidden;
     background: #09090b;
     color: #fafafa;
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden;
   }
+
   :global(body)::before {
     content: '';
     position: fixed;
     inset: 0;
+    z-index: -2;
     pointer-events: none;
     background:
       radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.05), transparent 22rem),
       radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.03), transparent 24rem),
-      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
     background-size: auto, auto, 96px 96px, 96px 96px;
   }
+
   .site-header, main, footer { width: min(100% - 2rem, 1180px); margin-inline: auto; }
   .site-header {
-    position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-    padding: 0.95rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(18px); background: rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.95rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(9, 9, 11, 0.62);
+    backdrop-filter: blur(18px);
   }
-  .wordmark, nav a, footer a, .hero-actions a, .work-card a, .playlist-card, .prototype-card a { color: inherit; text-decoration: none; }
-  .wordmark { font-weight: 560; letter-spacing: -0.025em; white-space: nowrap; }
-  nav { display: flex; gap: clamp(0.7rem, 1.8vw, 1.45rem); color: rgba(255, 255, 255, 0.7); font-size: 0.92rem; }
-  nav a:hover, footer a:hover, .work-card a:hover, .prototype-links a:hover { color: #fff; }
 
-  .hero { min-height: 72svh; display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; padding: clamp(4rem, 10vw, 8rem) 0; }
-  .eyebrow { margin: 0 0 1rem; color: rgba(255, 255, 255, 0.6); font-size: 0.76rem; letter-spacing: 0.11em; text-transform: uppercase; }
-  h1, h2, h3, p { margin-top: 0; }
+  a { color: inherit; }
+  .wordmark, .site-header nav a, .hero-actions a, .prototype, .text-link, footer a { text-decoration: none; }
+  .wordmark { font-weight: 580; letter-spacing: -0.025em; white-space: nowrap; }
+  .site-header nav { display: flex; gap: clamp(0.75rem, 2vw, 1.5rem); color: rgba(255, 255, 255, 0.62); font-size: 0.86rem; }
+  .site-header nav a:hover, footer a:hover, .text-link:hover { color: #fff; }
+
+  .hero {
+    min-height: 77svh;
+    display: grid;
+    align-items: center;
+    padding: clamp(5rem, 10vw, 9rem) 0;
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.56);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  h1, h2, p { margin-top: 0; }
   h1 {
     max-width: 1030px;
-    margin-bottom: 2rem;
-    font-size: clamp(3rem, 7vw, 7.1rem);
-    line-height: 0.96;
-    letter-spacing: -0.065em;
-    font-weight: 600;
+    margin: 1.6rem 0 2.6rem;
+    font-size: clamp(3.8rem, 9vw, 8.6rem);
+    line-height: 0.83;
+    letter-spacing: -0.075em;
+    font-weight: 590;
   }
-  .lede { max-width: 760px; color: rgba(255, 255, 255, 0.7); font-size: clamp(1.08rem, 1.8vw, 1.36rem); line-height: 1.55; font-weight: 370; }
+
+  .introduction { display: flex; align-items: center; gap: 1.15rem; max-width: 720px; }
+  .introduction img {
+    width: clamp(4.5rem, 7vw, 6rem);
+    height: clamp(4.5rem, 7vw, 6rem);
+    aspect-ratio: 1;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.34);
+  }
+  .introduction p { margin: 0; color: rgba(255, 255, 255, 0.7); font-size: clamp(1.05rem, 1.8vw, 1.34rem); line-height: 1.48; }
+
   .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
-  .hero-actions a, .work-card a, .prototype-links a { border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 999px; padding: 0.5rem 0.76rem; background: rgba(255, 255, 255, 0.05); transition: transform 180ms ease, background 180ms ease, border-color 180ms ease; }
-  .hero-actions a:hover, .work-card a:hover, .prototype-links a:hover { transform: translateY(-1px); background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
+  .hero-actions a {
+    padding: 0.52rem 0.82rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.055);
+    font-size: 0.88rem;
+    transition: transform 180ms ease, background 180ms ease;
+  }
+  .hero-actions a:hover { transform: translateY(-1px); background: rgba(255, 255, 255, 0.11); }
 
-  .section { padding: clamp(4rem, 8vw, 7rem) 0; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-  .section-heading { display: grid; grid-template-columns: minmax(9rem, 0.34fr) 1fr; gap: clamp(1.5rem, 4vw, 4rem); margin-bottom: clamp(2rem, 5vw, 4rem); }
-  h2 { max-width: 880px; font-size: clamp(2.1rem, 4.5vw, 4.9rem); line-height: 1; letter-spacing: -0.058em; font-weight: 600; }
+  .section { padding: clamp(4.5rem, 9vw, 8rem) 0; border-top: 1px solid rgba(255, 255, 255, 0.1); scroll-margin-top: 4.5rem; }
+  .section-heading {
+    display: grid;
+    grid-template-columns: minmax(9rem, 0.34fr) 1fr;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: start;
+    margin-bottom: clamp(2.5rem, 6vw, 5rem);
+  }
+  h2 { max-width: 880px; margin-bottom: 0; font-size: clamp(2.4rem, 5vw, 5.4rem); line-height: 0.96; letter-spacing: -0.062em; font-weight: 580; }
 
-  .work-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
-  .work-card { position: relative; min-height: 34rem; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(1rem, 2.4vw, 1.5rem); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.75rem; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(8px); overflow: hidden; transition: transform 300ms ease, background 300ms ease, border-color 300ms ease; }
-  .work-card:hover { transform: scale(1.05); background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
-  .work-card::before { content: ''; position: absolute; inset: 0; opacity: 0.04; background: radial-gradient(circle at 30% 20%, var(--accent), transparent 16rem); pointer-events: none; transition: opacity 200ms ease; }
-  .work-card:hover::before { opacity: 0.16; }
-  .signal { --accent: #2e73c7; } .canvas { --accent: #d9a630; } .toybox { --accent: #d84d2d; } .orbit { --accent: #4f9567; }
-  .work-topline, .tag-row, .prototype-links { display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: space-between; align-items: center; }
-  .work-topline span { font-size: 2.15rem; letter-spacing: -0.08em; font-weight: 360; }
-  .work-topline p, .kicker, .repo-name { color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; }
-  .visual-instrument { position: relative; height: 8rem; margin: 1.5rem 0; display: flex; gap: 0.35rem; align-items: end; }
-  .visual-instrument b { flex: 1; min-width: 0.45rem; border-radius: 999px 999px 0 0; background: var(--accent); opacity: 0.38; height: 32%; transition: opacity 180ms ease; }
-  .work-card:hover .visual-instrument b { opacity: 0.86; animation: meter 2.2s ease-in-out infinite; }
-  .work-card:hover .visual-instrument b:nth-child(2) { animation-delay: -0.2s; } .work-card:hover .visual-instrument b:nth-child(3) { animation-delay: -0.5s; } .work-card:hover .visual-instrument b:nth-child(4) { animation-delay: -0.8s; } .work-card:hover .visual-instrument b:nth-child(5) { animation-delay: -1s; }
-  .work-card h3, .prototype-card h3, .playlist-card h3, .practice-grid h3 { font-size: clamp(1.45rem, 2.1vw, 2.05rem); line-height: 1.04; letter-spacing: -0.046em; margin-bottom: 0.8rem; font-weight: 600; }
-  .work-card p, .prototype-body p, .playlist-card p:not(.eyebrow), .practice-grid p { color: rgba(255, 255, 255, 0.7); line-height: 1.56; font-weight: 370; }
-  .tag-row span, .capability-grid span { border: none; border-radius: 999px; padding: 0.23rem 0.75rem; color: rgba(255, 255, 255, 0.8); background: rgba(255, 255, 255, 0.1); font-size: 0.75rem; font-weight: 500; }
+  .prototype-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.5rem); }
+  .prototype { position: relative; overflow: hidden; border-radius: 1rem; background: #151518; }
+  .prototype img { width: 100%; aspect-ratio: 1.65 / 1; display: block; object-fit: cover; opacity: 0.86; transition: transform 420ms ease, opacity 240ms ease; }
+  .prototype > span {
+    position: absolute;
+    left: 1.1rem;
+    bottom: 1rem;
+    padding: 0.38rem 0.62rem;
+    border-radius: 999px;
+    background: rgba(9, 9, 11, 0.68);
+    backdrop-filter: blur(12px);
+    font-size: 0.86rem;
+  }
+  .prototype > span:last-child { right: 1.1rem; left: auto; }
+  .prototype:hover img { transform: scale(1.025); opacity: 1; }
+  .prototype:focus-visible, .hero-actions a:focus-visible, .site-header nav a:focus-visible, footer a:focus-visible, .text-link:focus-visible { outline: 2px solid #fff; outline-offset: 0.35rem; }
 
-  .prototype-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-  .prototype-card { border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(8px); overflow: hidden; transition: transform 300ms ease, background 300ms ease, border-color 300ms ease; }
-  .prototype-card:hover { transform: scale(1.05); background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
-  .prototype-image { display: block; overflow: hidden; background: rgba(255, 255, 255, 0.05); }
-  .prototype-card img { width: 100%; aspect-ratio: 1.65 / 1; object-fit: cover; display: block; filter: saturate(0.98) contrast(0.98); transform: scale(1.01); transition: transform 500ms ease; }
-  .prototype-card:hover img { transform: scale(1.025); }
-  .prototype-body { padding: clamp(1.1rem, 3vw, 1.6rem); }
-  .prototype-links { justify-content: flex-start; margin: 1rem 0; }
+  .playlist { overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: clamp(1rem, 2vw, 1.5rem); background: #000; box-shadow: 0 2.5rem 6rem rgba(0, 0, 0, 0.36); }
+  .playlist iframe { width: 100%; aspect-ratio: 16 / 9; display: block; border: 0; }
+  .text-link { display: inline-block; margin-top: 1.2rem; color: rgba(255, 255, 255, 0.64); font-size: 0.88rem; }
 
-  .playlist-card { display: grid; grid-template-columns: minmax(160px, 0.3fr) 1fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: center; min-height: 20rem; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.75rem; padding: clamp(1.25rem, 4vw, 3rem); background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(8px); transition: transform 300ms ease, background 300ms ease, border-color 300ms ease; }
-  .playlist-card:hover { transform: scale(1.02); background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
-  .play-symbol { width: clamp(7rem, 13vw, 10.5rem); aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; background: #d84d2d; color: #fafafa; font-size: clamp(3rem, 7vw, 5.6rem); font-weight: 360; }
+  .practice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 5vw, 4rem) clamp(1rem, 2vw, 1.5rem); }
+  .practice-entry { min-width: 0; display: grid; gap: 1.2rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.14); text-decoration: none; }
+  .practice-image { overflow: hidden; border-radius: 0.9rem; background: #151518; }
+  .practice-image img { width: 100%; aspect-ratio: 1.62 / 1; display: block; object-fit: cover; opacity: 0.84; filter: saturate(0.88); transition: transform 420ms ease, opacity 220ms ease, filter 220ms ease; }
+  .practice-image.logo-art { display: grid; place-items: center; aspect-ratio: 1.62 / 1; padding: clamp(1.5rem, 4vw, 3.5rem); background: #050505; }
+  .practice-image.logo-art img { aspect-ratio: auto; object-fit: contain; opacity: 1; filter: none; }
+  .practice-copy { display: grid; gap: 0.65rem; }
+  .practice-meta { display: flex; justify-content: space-between; gap: 1rem; color: rgba(255, 255, 255, 0.48); font-size: 0.72rem; letter-spacing: 0.035em; }
+  .practice-meta > span:last-child { transition: transform 180ms ease; }
+  .practice-copy strong { font-size: clamp(1.55rem, 2.6vw, 2.35rem); line-height: 1; letter-spacing: -0.048em; font-weight: 580; }
+  .practice-description { max-width: 31rem; color: rgba(255, 255, 255, 0.62); font-size: 0.94rem; line-height: 1.5; }
+  .practice-entry:hover .practice-image img { transform: scale(1.025); opacity: 1; filter: saturate(1); }
+  .practice-entry:hover .practice-meta > span:last-child { transform: translate(0.15rem, -0.15rem); }
+  .practice-entry:focus-visible { outline: 2px solid #fff; outline-offset: 0.45rem; border-radius: 0.3rem; }
 
-  .practice-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-  .practice-grid article { overflow: hidden; min-height: 22rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(8px); transition: transform 300ms ease, background 300ms ease, border-color 300ms ease; }
-  .practice-grid article:hover { transform: scale(1.05); background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
-  .practice-grid img { width: 100%; aspect-ratio: 1.4 / 1; object-fit: cover; display: block; filter: saturate(0.92) contrast(0.98); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-  .practice-grid article > div { padding: clamp(1.1rem, 3vw, 1.45rem); }
+  .closing { display: grid; grid-template-columns: 1fr minmax(260px, 0.55fr); gap: clamp(2rem, 5vw, 4rem); }
+  .closing > p { margin: 0; font-size: clamp(2.5rem, 5vw, 5.2rem); line-height: 0.94; letter-spacing: -0.062em; font-weight: 580; }
+  .capabilities { display: flex; flex-wrap: wrap; align-content: start; gap: 0.5rem; }
+  .capabilities span { padding: 0.3rem 0.72rem; border-radius: 999px; background: rgba(255, 255, 255, 0.09); color: rgba(255, 255, 255, 0.7); font-size: 0.75rem; }
 
-  .capability-section { display: grid; grid-template-columns: 1fr minmax(260px, 0.55fr); gap: clamp(2rem, 5vw, 4rem); }
-  .approach-copy { max-width: 800px; font-size: clamp(1.7rem, 3.5vw, 3.5rem); line-height: 1.05; letter-spacing: -0.052em; font-weight: 600; }
-  .capability-grid { display: flex; flex-wrap: wrap; align-content: start; gap: 0.55rem; }
-  footer { padding: 2rem 0 3rem; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.6); font-size: 0.85rem; }
-
+  footer { display: flex; justify-content: space-between; padding: 2rem 0 3rem; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.52); font-size: 0.82rem; }
+  .footer-links { display: flex; align-items: center; gap: 1rem; }
+  .email-link { transition: color 180ms ease; }
   .reveal { animation: reveal 700ms ease both; }
   @keyframes reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes meter { 0%, 100% { height: 30%; } 50% { height: 92%; } }
 
-  @media (max-width: 1100px) { .work-list, .practice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 900px) { .section-heading, .playlist-card, .capability-section, .prototype-grid { grid-template-columns: 1fr; } }
-  @media (max-width: 680px) { nav { width: 100%; overflow-x: auto; } .site-header { align-items: flex-start; flex-direction: column; } .work-list, .practice-grid { grid-template-columns: 1fr; } .work-card { min-height: 28rem; } }
-  @media (prefers-reduced-motion: reduce) { :global(html) { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+  @media (max-width: 760px) {
+    .site-header { align-items: flex-start; flex-direction: column; }
+    .site-header nav { width: 100%; overflow-x: auto; }
+    .hero { min-height: 70svh; }
+    .section, :global(#apps) { scroll-margin-top: 7rem; }
+    .section-heading, .closing { grid-template-columns: 1fr; }
+    .prototype-grid, .practice-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 470px) {
+    .introduction { align-items: flex-start; }
+    .introduction img { width: 4.25rem; height: 4.25rem; }
+    .introduction p { font-size: 1rem; }
+    footer { align-items: flex-start; flex-direction: column; gap: 1.25rem; }
+    .footer-links { width: 100%; justify-content: space-between; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) { scroll-behavior: auto; }
+    :global(*), :global(*::before), :global(*::after) { animation: none !important; transition: none !important; }
+  }
 </style>
