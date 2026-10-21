@@ -69,13 +69,13 @@
 </script>
 
 <svelte:head>
-  <title>Antony Nascè — Audiovisual Tinkerer</title>
+  <title>Ant Nascè — Audiovisual Tinkerer</title>
   <meta name="description" content="Composer and product developer making playful tools for sound, image and space." />
   <link rel="icon" type="image/webp" href="./antony-nasce.webp" />
 </svelte:head>
 
 <header class="site-header">
-  <a class="wordmark" href="./">Antony Nascè</a>
+  <a class="wordmark" href="./">Ant Nascè</a>
   <nav aria-label="Primary navigation">
     <a href="#apps">Apps</a>
     <a href="#prototypes">Prototypes</a>
@@ -90,8 +90,8 @@
       <p class="eyebrow">Creative technologist · musical systems · spatial play</p>
       <h1>Audiovisual<br />Tinkerer.</h1>
       <div class="introduction">
-        <img src="./antony-nasce.webp" alt="Antony Nascè" width="640" height="640" />
-        <p>I’m Antony Nascè — a composer and product developer making playful tools for sound, image and space.</p>
+        <img src="./antony-nasce.webp" alt="Ant Nascè" width="640" height="640" />
+        <p>I’m Ant — product developer, creative technologist & musician. I make playful tools for sound, image and space.</p>
       </div>
       <div class="hero-actions">
         <a href="#apps">Explore apps</a>
@@ -128,7 +128,7 @@
     <div class="playlist">
       <iframe
         src={playlistEmbed}
-        title="Antony Nascè audiovisual experiments playlist"
+        title="Audiovisual experiments playlist"
         loading="lazy"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen
