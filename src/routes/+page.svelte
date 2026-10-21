@@ -1,5 +1,6 @@
 <script>
   import AppShowcase from '../lib/AppShowcase.svelte';
+  import MusicShowcase from '../lib/MusicShowcase.svelte';
   import SocialLinks from '../lib/SocialLinks.svelte';
 
   const playlistId = 'PLVqqKblFrXjaA8gYFgYS40rxdmFLhRnjD';
@@ -65,7 +66,7 @@
     }
   ];
 
-  const capabilities = ['Audio systems', 'Spatial interaction', 'Image processing', 'WebMIDI', 'Apple platforms', 'XR prototyping'];
+  const capabilities = ['Audio systems', 'Video game composition', 'Spatial interaction', 'Image processing', 'WebMIDI', 'Apple platforms', 'XR prototyping'];
 </script>
 
 <svelte:head>
@@ -78,6 +79,7 @@
   <a class="wordmark" href="./">Ant Nascè</a>
   <nav aria-label="Primary navigation">
     <a href="#apps">Apps</a>
+    <a href="#music">Music</a>
     <a href="#prototypes">Prototypes</a>
     <a href="#media">Watch</a>
     <a href="#practice">Practice</a>
@@ -101,6 +103,8 @@
   </section>
 
   <AppShowcase />
+
+  <MusicShowcase />
 
   <section id="prototypes" class="section reveal">
     <div class="section-heading">
@@ -171,7 +175,6 @@
   <span>© 2026 Antony Nascè</span>
   <div class="footer-links">
     <SocialLinks />
-    <a class="email-link" href="mailto:antonynasce@gmail.com">Email</a>
   </div>
 </footer>
 
@@ -217,10 +220,10 @@
   }
 
   a { color: inherit; }
-  .wordmark, .site-header nav a, .hero-actions a, .prototype, .text-link, footer a { text-decoration: none; }
+  .wordmark, .site-header nav a, .hero-actions a, .prototype, .text-link { text-decoration: none; }
   .wordmark { font-weight: 580; letter-spacing: -0.025em; white-space: nowrap; }
   .site-header nav { display: flex; gap: clamp(0.75rem, 2vw, 1.5rem); color: rgba(255, 255, 255, 0.62); font-size: 0.86rem; }
-  .site-header nav a:hover, footer a:hover, .text-link:hover { color: #fff; }
+  .site-header nav a:hover, .text-link:hover { color: #fff; }
 
   .hero {
     min-height: 77svh;
@@ -296,7 +299,7 @@
   }
   .prototype > span:last-child { right: 1.1rem; left: auto; }
   .prototype:hover img { transform: scale(1.025); opacity: 1; }
-  .prototype:focus-visible, .hero-actions a:focus-visible, .site-header nav a:focus-visible, footer a:focus-visible, .text-link:focus-visible { outline: 2px solid #fff; outline-offset: 0.35rem; }
+  .prototype:focus-visible, .hero-actions a:focus-visible, .site-header nav a:focus-visible, .text-link:focus-visible { outline: 2px solid #fff; outline-offset: 0.35rem; }
 
   .playlist { overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: clamp(1rem, 2vw, 1.5rem); background: #000; box-shadow: 0 2.5rem 6rem rgba(0, 0, 0, 0.36); }
   .playlist iframe { width: 100%; aspect-ratio: 16 / 9; display: block; border: 0; }
@@ -324,7 +327,6 @@
 
   footer { display: flex; justify-content: space-between; padding: 2rem 0 3rem; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.52); font-size: 0.82rem; }
   .footer-links { display: flex; align-items: center; gap: 1rem; }
-  .email-link { transition: color 180ms ease; }
   .reveal { animation: reveal 700ms ease both; }
   @keyframes reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 

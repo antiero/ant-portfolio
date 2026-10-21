@@ -1,4 +1,6 @@
 <script lang="ts">
+  import AppleDeviceFamily from './AppleDeviceFamily.svelte';
+
   const apps = [
     {
       name: 'xybuddy', icon: 'xybuddy.png', crop: 'xybuddy',
@@ -69,6 +71,11 @@
         { label: 'TestFlight', href: 'https://testflight.apple.com/join/awhkc6eb' },
         { label: 'Web', href: 'https://5of12.github.io/MIDIVision/' }
       ]
+    },
+    {
+      name: 'Gumroad', icon: 'gumroad.webp',
+      description: 'A small shop for music, apps and curious things.',
+      links: [{ label: 'Shop', href: 'https://tonynacho.gumroad.com' }]
     }
   ];
 
@@ -108,6 +115,8 @@
     <p class="eyebrow">Apps in development</p>
     <h2>A small screen full of ideas.</h2>
   </header>
+
+  <AppleDeviceFamily />
 
   <div class="device-stage">
     <div class="device" aria-label="A virtual Apple device showing Antony's apps">
