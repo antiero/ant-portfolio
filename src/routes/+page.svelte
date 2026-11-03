@@ -1,4 +1,5 @@
 <script>
+  import { base } from '$app/paths';
   import AppShowcase from '../lib/AppShowcase.svelte';
   import MusicShowcase from '../lib/MusicShowcase.svelte';
   import SocialLinks from '../lib/SocialLinks.svelte';
@@ -83,6 +84,7 @@
     <a href="#prototypes">Prototypes</a>
     <a href="#media">Watch</a>
     <a href="#practice">Practice</a>
+    <a href="{base}/cv" data-sveltekit-reload>CV</a>
   </nav>
 </header>
 
