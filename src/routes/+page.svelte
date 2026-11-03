@@ -11,22 +11,22 @@
     {
       title: 'Pulse',
       href: 'https://5of12.github.io/Pulse/',
-      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FPulse%2F&screenshot=true&meta=false&embed=screenshot.url'
+      preview: './previews/pulse.png'
     },
     {
       title: 'Augment',
       href: 'https://5of12.github.io/Augment/',
-      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FAugment%2F&screenshot=true&meta=false&embed=screenshot.url'
+      preview: './previews/augment.png'
     },
     {
       title: 'PocketOperations',
       href: 'https://5of12.github.io/PocketOperations/',
-      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FPocketOperations%2F&screenshot=true&meta=false&embed=screenshot.url'
+      preview: './previews/pocketoperations.png'
     },
     {
       title: 'MIDIWeb Hub',
       href: 'https://5of12.github.io/MIDIWeb-Hub/',
-      preview: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.github.io%2FMIDIWeb-Hub%2F&screenshot=true&meta=false&embed=screenshot.url'
+      preview: './previews/midiweb-hub.png'
     }
   ];
 
@@ -36,7 +36,7 @@
       role: 'Co-founder · Product Director',
       text: 'A creative technology studio building audio, spatial and haptic experiences.',
       href: 'https://5of12.co.uk/',
-      image: 'https://api.microlink.io/?url=https%3A%2F%2F5of12.co.uk%2F&screenshot=true&meta=false&embed=screenshot.url',
+      image: './previews/5of12.png',
       alt: '5of12 creative technology studio website'
     },
     {
@@ -44,7 +44,7 @@
       role: 'VFX software foundations',
       text: 'Professional image tools shaped my approach to processing and artist workflows.',
       href: 'https://www.foundry.com/',
-      image: 'https://api.microlink.io/?url=https%3A%2F%2Fwww.foundry.com%2F&screenshot=true&meta=false&embed=screenshot.url',
+      image: './previews/foundry.png',
       alt: 'Foundry creative software website'
     },
     {
@@ -52,7 +52,7 @@
       role: 'Studio resident',
       text: 'Part of Bristol’s creative technology research and development community.',
       href: 'https://www.watershed.co.uk/studio/residents/ant-nasc%C3%A8',
-      image: 'https://api.microlink.io/?url=https%3A%2F%2Fwww.watershed.co.uk%2Fstudio%2F&screenshot=true&meta=false&embed=screenshot.url',
+      image: './previews/pervasive-media-studio.png',
       alt: 'Pervasive Media Studio website'
     },
     {
