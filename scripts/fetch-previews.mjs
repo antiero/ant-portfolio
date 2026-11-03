@@ -1,6 +1,8 @@
-// Downloads site screenshots into static/previews so the site never depends on a live third-party API.
+// Downloads site screenshots into static/previews (resized to 1280px, WebP) so the site never depends on a live third-party API.
+// Requires `cwebp` (brew install webp).
 // Usage: npm run previews [slug ...]   (no slugs = refresh all)
-import { writeFile, mkdir } from 'node:fs/promises';
+import { writeFile, mkdir, unlink } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
 
 const sites = {
   pulse: 'https://5of12.github.io/Pulse/',
@@ -23,9 +25,14 @@ for (const slug of slugs) {
     const res = await fetch(api, { redirect: 'follow' });
     const type = res.headers.get('content-type') ?? '';
     if (!res.ok || !type.startsWith('image/')) throw new Error(`${res.status} ${type}`);
-    const ext = type.includes('png') ? 'png' : type.includes('webp') ? 'webp' : 'jpg';
-    await writeFile(`static/previews/${slug}.${ext}`, Buffer.from(await res.arrayBuffer()));
-    console.log(`ok   ${slug}.${ext}`);
+    const tmp = `static/previews/${slug}.tmp`;
+    await writeFile(tmp, Buffer.from(await res.arrayBuffer()));
+    try {
+      execFileSync('cwebp', ['-quiet', '-q', '80', '-resize', '1280', '0', tmp, '-o', `static/previews/${slug}.webp`]);
+    } finally {
+      await unlink(tmp);
+    }
+    console.log(`ok   ${slug}.webp`);
   } catch (e) {
     failed++;
     console.error(`FAIL ${slug}: ${e.message}`);

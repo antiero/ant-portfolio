@@ -11,22 +11,22 @@
     {
       title: 'Pulse',
       href: 'https://5of12.github.io/Pulse/',
-      preview: './previews/pulse.png'
+      preview: './previews/pulse.webp'
     },
     {
       title: 'Augment',
       href: 'https://5of12.github.io/Augment/',
-      preview: './previews/augment.png'
+      preview: './previews/augment.webp'
     },
     {
       title: 'PocketOperations',
       href: 'https://5of12.github.io/PocketOperations/',
-      preview: './previews/pocketoperations.png'
+      preview: './previews/pocketoperations.webp'
     },
     {
       title: 'MIDIWeb Hub',
       href: 'https://5of12.github.io/MIDIWeb-Hub/',
-      preview: './previews/midiweb-hub.png'
+      preview: './previews/midiweb-hub.webp'
     }
   ];
 
@@ -36,7 +36,7 @@
       role: 'Co-founder · Product Director',
       text: 'A creative technology studio building audio, spatial and haptic experiences.',
       href: 'https://5of12.co.uk/',
-      image: './previews/5of12.png',
+      image: './previews/5of12.webp',
       alt: '5of12 creative technology studio website'
     },
     {
@@ -44,7 +44,7 @@
       role: 'VFX software foundations',
       text: 'Professional image tools shaped my approach to processing and artist workflows.',
       href: 'https://www.foundry.com/',
-      image: './previews/foundry.png',
+      image: './previews/foundry.webp',
       alt: 'Foundry creative software website'
     },
     {
@@ -52,7 +52,7 @@
       role: 'Studio resident',
       text: 'Part of Bristol’s creative technology research and development community.',
       href: 'https://www.watershed.co.uk/studio/residents/ant-nasc%C3%A8',
-      image: './previews/pervasive-media-studio.png',
+      image: './previews/pervasive-media-studio.webp',
       alt: 'Pervasive Media Studio website'
     },
     {
